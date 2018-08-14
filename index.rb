@@ -1,18 +1,19 @@
 #料理注文サービス
-require "./menu"
+require "./food"
+require "./drink"
+require "date"
 
 puts "名前を入力してください"
 name = gets.chomp
 puts "#{name}さん、いらっしゃいませ"
 puts "メニューはこちらです"
 
-menu1 = Menu.new(name: "ピザ", price: 800)
-menu2 = Menu.new(name: "すし", price: 1000)
-menu3 = Menu.new(name: "コーラ", price: 300)
-menu4 = Menu.new(name: "お茶", price: 200)
+food1 = Food.new(name: "ピザ", price: 800,calorie:700)
+food2 = Food.new(name: "すし", price: 1000,calorie:600)
+drink1 = Drink.new(name:"コーラ",price:300,amount:400)
+drink2 = Drink.new(name:"お茶",price:200,amount:500)
 
-# 変数menusを定義して配列を代入してください
-menus = [menu1,menu2,menu3,menu4]
+menus = [food1,food2,drink1,drink2]
 
 index = 0
 menus.each do |menu|
@@ -31,3 +32,4 @@ puts "個数を入力してください（３つ以上で１００円引き）"
 
 count = gets.chomp.to_i
 puts "お会計は#{selected_menu.get_total_price(count)}円です"
+
