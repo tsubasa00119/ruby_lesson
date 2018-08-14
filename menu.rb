@@ -18,6 +18,17 @@ end
     if count >= 3
       puts total_price -= 100
     end
+    #日曜日なら100円引き
+    if count >= 1 && Menu.is_discount_day?
+      total_price -= 100
+    end
+
     return total_price
   end
+
+    def Menu.is_discount_day?
+      today = Date.today
+      return today.sunday?
+    end
 end
+
